@@ -1,0 +1,1 @@
+("~/dotfiles/" "~/dev/playground/command-line-args/" "~/dev/playground/command-line-args/test/" "~/dev/playground/command-line-args/target/" "~/dev/playground/command-line-args/src/" "~/dev/playground/command-line-args/resources/" "~/dev/playground/command-line-args/doc/")
