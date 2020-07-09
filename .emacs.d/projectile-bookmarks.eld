@@ -1,1 +1,0 @@
-("~/dotfiles/" "~/dev/monkey-scheduler-bot/" "~/dev/hello-clojure/" "~/dev/datomic-pro-0.9.6045/" "~/dev/datomic-ecommerce/" "~/dev/toys/command-line-args/")
