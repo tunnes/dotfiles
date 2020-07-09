@@ -3,7 +3,7 @@
              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (package-initialize)
 
-;; Projectile
+;; Projectile ------------------------------------------------------------------------------
 ;; An package to enable projec navitation
 ;; https://github.com/bbatsov/projectile
 (unless (package-installed-p 'projectile)
@@ -16,17 +16,23 @@
 
 (setq projectile-project-search-path '("~/dev/"))
 
-;; Clojure mode
+;; Clojure mode ----------------------------------------------------------------------------
 ;; Enables to work with clojure script language
 ;; https://github.com/clojure-emacs/clojure-mode
 (unless (package-installed-p 'clojure-mode)
   (package-install 'clojure-mode))
 
-;; Cider
+;; Cider -----------------------------------------------------------------------------------
 ;; It is a interactive tool to work with nREPL of Clojure
 ;; https://github.com/clojure-emacs/cider
 (unless (package-installed-p 'cider)
   (package-install 'cider))
+
+;; Markdown --------------------------------------------------------------------------------
+;; Enables markdown edition via major mode
+;; https://github.com/jrblevin/markdown-mode
+(unless (package-installed-p 'markdown-mode)
+  (package-install 'markdown-mode))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
