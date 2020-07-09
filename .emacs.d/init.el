@@ -14,6 +14,8 @@
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (projectile-mode +1)
 
+(setq projectile-project-search-path '("~/dev/"))
+
 ;; Clojure mode
 ;; Enables to work with clojure script language
 ;; https://github.com/clojure-emacs/clojure-mode

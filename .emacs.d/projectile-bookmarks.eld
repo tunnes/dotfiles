@@ -1,1 +1,1 @@
-("~/dotfiles/" "~/dev/playground/command-line-args/" "~/dev/playground/command-line-args/test/" "~/dev/playground/command-line-args/target/" "~/dev/playground/command-line-args/src/" "~/dev/playground/command-line-args/resources/" "~/dev/playground/command-line-args/doc/")
+("~/dotfiles/" "~/dev/monkey-scheduler-bot/" "~/dev/hello-clojure/" "~/dev/datomic-pro-0.9.6045/" "~/dev/datomic-ecommerce/" "~/dev/toys/command-line-args/")
