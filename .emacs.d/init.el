@@ -52,3 +52,7 @@
 
 ;; Enables the line number:
 (global-display-line-numbers-mode)
+
+;; TODO TABS
+;; (global-set-key (kbd "TAB") 'self-insert-command)
+;; https://www.emacswiki.org/emacs/IndentationBasics
