@@ -56,3 +56,24 @@
 ;; TODO TABS
 ;; (global-set-key (kbd "TAB") 'self-insert-command)
 ;; https://www.emacswiki.org/emacs/IndentationBasics
+
+(defun pt-pbpaste ()
+  "Paste data from pasteboard."
+  (interactive)
+  (shell-command-on-region
+   (point)
+   (if mark-active (mark) (point))
+   "pbpaste" nil t))
+
+(defun pt-pbcopy ()
+  "Copy region to pasteboard."
+  (interactive)
+  (print (mark))
+  (when mark-active
+    (shell-command-on-region
+     (point) (mark) "pbcopy")
+     (kill-ring-save (point) (mark))
+    (kill-buffer "Copied!")))
+
+(global-set-key [?\C-x ?\C-y] 'pt-pbpaste)
+(global-set-key [?\M-w] 'pt-pbcopy)
