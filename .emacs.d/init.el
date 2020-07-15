@@ -16,7 +16,18 @@
 
 (setq projectile-project-search-path '("~/dev/"))
 
-;; Clojure mode ----------------------------------------------------------------------------
+;; Counsel
+;; [WIP] https://github.com/abo-abo/swiper#ivy
+;; An package that makes more visual nice the mini buffer interactions
+(unless (package-installed-p 'counsel)
+  (package-install 'counsel))
+
+(ivy-mode 1)
+
+(setq projectile-completion-system 'ivy)
+
+;; Clojure mode
+
 ;; Enables to work with clojure script language
 ;; https://github.com/clojure-emacs/clojure-mode
 (unless (package-installed-p 'clojure-mode)
