@@ -45,6 +45,14 @@
 (unless (package-installed-p 'markdown-mode)
   (package-install 'markdown-mode))
 
+;; Dracula Theme  --------------------------------------------------------------------------------
+;; Enables emacs dracula theme
+;; https://github.com/dracula/emacs/tree/e5cbc350f49a30ad78a84e68b4e1682d018c9b7f
+(unless (package-installed-p 'dracula-theme)
+  (package-install 'dracula-theme))
+
+(load-theme 'dracula t)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -59,7 +67,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(line-number-current-line ((t (:weight extra-bold)))))
+ '(line-number ((t (:background "#262626" :foreground "white" :slant italic))))
+ '(line-number-current-line ((t (:background "color-234" :weight ultra-bold))))
+ '(mode-line ((t (:background "#767676")))))
 
 ;; Enables the line number:
 (global-display-line-numbers-mode)
