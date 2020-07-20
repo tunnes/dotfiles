@@ -53,6 +53,30 @@
 
 (load-theme 'dracula t)
 
+
+;; Clojure Refactor ---------------------------------------------------------------------------
+(unless (package-installed-p 'clj-refactor)
+  (package-install 'clj-refactor))
+
+(require 'clj-refactor)
+
+(defun my-clojure-mode-hook ()
+    (clj-refactor-mode 1)
+    (yas-minor-mode 1) ; for adding require/use/import statements
+    ;; This choice of keybinding leaves cider-macroexpand-1 unbound
+    (cljr-add-keybindings-with-prefix "C-c C-m"))
+
+(add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
+
+;; Rainbow-delimiters ----------------------------------------------------------------------------------------------
+
+(unless (package-installed-p 'rainbow-delimiters)
+  (package-install 'rainbow-delimiters))
+
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+;; ----------------------------------------------------------------------------------------------
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -74,9 +98,6 @@
 ;; Enables the line number:
 (global-display-line-numbers-mode)
 
-;; TODO TABS
-;; (global-set-key (kbd "TAB") 'self-insert-command)
-;; https://www.emacswiki.org/emacs/IndentationBasics
 
 (defun pt-pbpaste ()
   "Paste data from pasteboard."
@@ -94,7 +115,11 @@
     (shell-command-on-region
      (point) (mark) "pbcopy")
      (kill-ring-save (point) (mark))
-    (kill-buffer "Copied!")))
+     (keyboard-quit)
+     (kill-buffer "Copied!")
+     ))
 
 (global-set-key [?\C-x ?\C-y] 'pt-pbpaste)
 (global-set-key [?\M-w] 'pt-pbcopy)
+
+(setq backup-directory-alist `(("." . "~/.saves")))
