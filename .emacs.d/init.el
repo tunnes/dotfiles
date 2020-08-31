@@ -84,7 +84,7 @@
  ;; If there is more than one, they won't work right.
  '(display-line-numbers-width 2)
  '(global-display-line-numbers-mode t)
- '(package-selected-packages (quote (clojure-mode))))
+ '(package-selected-packages (quote (plantuml-mode clojure-mode))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -123,3 +123,27 @@
 (global-set-key [?\M-w] 'pt-pbcopy)
 
 (setq backup-directory-alist `(("." . "~/.saves")))
+
+
+;; Multiple cursor package ====================================
+;; An package to add multiple cursor mode to emacs
+;; https://github.com/magnars/multiple-cursors.el
+(unless (package-installed-p 'multiple-cursors)
+  (package-install 'multiple-cursors))
+
+(require 'multiple-cursors)
+
+
+(setq mac-command-modifier 'super)
+
+(defun seila ()
+  (kill-buffer "Seila!"))
+
+;(global-set-key [?\C-S-b] 'seila)
+ 
+(global-set-key (kbd "C-q") 'mc/edit-lines)
+
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
