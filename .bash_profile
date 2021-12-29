@@ -21,5 +21,6 @@ export HISTSIZE=10000 # resize history size
 git config --global color.diff auto
 git config --global color.status auto
 git config --global color.branch auto
+git config --global core.editor emacs
 
 alias emacs="emacs -nw"

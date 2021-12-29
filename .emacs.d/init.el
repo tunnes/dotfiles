@@ -137,7 +137,10 @@
  '(display-line-numbers-width 2)
  '(global-display-line-numbers-mode t)
  '(package-selected-packages
-   '(dracula-theme
+   '(git-auto-commit-mode
+     git-commit
+     git-modes
+     dracula-theme
      inf-ruby
      company
      flycheck
