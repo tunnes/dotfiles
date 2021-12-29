@@ -643,13 +643,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.14901960784313725</real>
+				<real>0.21176470588235294</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.14901960784313725</real>
+				<real>0.16470588235294117</real>
 				<key>Red Component</key>
-				<real>0.14901960784313725</real>
+				<real>0.15686274509803921</real>
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>
@@ -740,12 +740,16 @@
 			<false/>
 			<key>Foreground Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.90032327175140381</real>
+				<real>0.94743680953979492</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.90032327175140381</real>
+				<real>0.94743680953979492</real>
 				<key>Red Component</key>
-				<real>0.90032327175140381</real>
+				<real>0.94743680953979492</real>
 			</dict>
 			<key>Guid</key>
 			<string>FABB23DE-A6F4-4598-91D0-1842943ABC1D</string>

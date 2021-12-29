@@ -68,6 +68,9 @@
 
 (add-hook 'ruby-mode-hook #'lsp)
 
+;; Hides the breadcrumb on the top of emacs
+(setq lsp-headerline-breadcrumb-enable nil)
+
 ;; Changing prefix for lsp-mode keybindings.
 (setq lsp-keymap-prefix "C-c")
 
@@ -132,25 +135,40 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(display-line-numbers-width 2)
- '(global-display-line-numbers-mode t))
+ '(global-display-line-numbers-mode t)
+ '(package-selected-packages
+   '(dracula-theme
+     inf-ruby
+     company
+     flycheck
+     lsp-mode
+     rainbow-delimiters
+     markdown-mode
+     cider
+     clojure-mode
+     counsel
+     projectile)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(line-number ((t (:background "#262626" :foreground "white"))))
- '(line-number-current-line ((t (:background "color-234" :weight ultra-bold))))
- '(mode-line ((t (:background "#767676")))))
-
-;;(add-to-list 'default-frame-alist '(foreground-color . "#22242e"))
-;;(add-to-list 'default-frame-alist '(background-color . "#22242E"))
+ '(line-number ((t (:background "undefined" :foreground "#44475a"))))
+ '(line-number-current-line ((t (:background "#474246" :weight ultra-bold))))
+ '(mode-line ((t (:background "#44475a")))))
 
 ;; Enables the line number:
 (global-display-line-numbers-mode)
+
+;; Defines to emacs use the current terminal background color.
+(set-face-background 'default "undefined")
+
+;; It sets the comment color.
+(set-face-foreground 'font-lock-comment-face "#404a53")
+(set-face-foreground 'font-lock-comment-delimiter-face "#404a53")
 
 (setq backup-directory-alist `(("." . "~/.saves")))
 
 (provide 'init)
 ;;; init.el ends here
-
