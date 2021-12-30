@@ -62,4 +62,7 @@ else
 
 fi
 
-# ~/Library/Preferences/com.googlecode.iterm2.plist
+# Copy Fonts ----------------------------------------------------------------------------------------
+echo -e "\nCopy Fonts:"
+cp fonts/* ~/Library/Fonts
+echo -e "\033[36mInfo:\033[0m fonts copied to ~/Library/Fonts."
