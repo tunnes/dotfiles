@@ -97,6 +97,15 @@
 (unless (package-installed-p 'inf-ruby)
   (package-install 'inf-ruby))
 
+(defun ruby-load-current-file ()
+  "Send the current line to the inferior Ruby process."
+  (interactive)
+  (ruby-load-file (buffer-name)))
+
+;; Set keybinding to load the current ruby file.
+(add-hook 'ruby-mode-hook
+          (lambda () (local-set-key (kbd "C-c C-k") 'ruby-load-current-file)))
+
 ;; RSpec Mode -------------------------------------------------------------------------------------------
 ;; RSpec mode provides some convenience functions for dealing with RSpec.
 ;; https://github.com/pezra/rspec-mode
