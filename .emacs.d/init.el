@@ -1,10 +1,11 @@
 ;;; package --- Summary
+
 ;;; Commentary:
 (global-set-key (kbd "s-<right>") 'move-end-of-line)
 (require 'package)
+
 ;;; Code:
-(add-to-list 'package-archives
-             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 ;; Projectile ---------------------------------------------------------------------------------------------
