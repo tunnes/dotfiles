@@ -146,6 +146,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(line-number ((t (:background "undefined" :foreground "#44475a"))))
+ '(inf-ruby-result-overlay-face ((t (:background "#404a53" :box (:line-width -1 :color "black")))))
  '(line-number-current-line ((t (:background "#474246" :weight ultra-bold))))
  '(mode-line ((t (:background "#44475a")))))
 
