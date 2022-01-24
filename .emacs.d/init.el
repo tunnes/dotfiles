@@ -98,11 +98,25 @@
 (unless (package-installed-p 'inf-ruby)
   (package-install 'inf-ruby))
 
+;; Yasnippet ------------------------------------------------------------------------------------------
+;; YASnippet is a template system for Emacs. It allows you to type an abbreviation and automatically
+;; expand it into function templates.
+;; https://github.com/joaotavora/yasnippet
+(unless (package-installed-p 'yasnippet)
+  (package-install 'yasnippet))
+
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
+
 ;; RSpec Mode -------------------------------------------------------------------------------------------
 ;; RSpec mode provides some convenience functions for dealing with RSpec.
 ;; https://github.com/pezra/rspec-mode
-(unless (package-installed-p 'inf-ruby)
-  (package-install 'inf-ruby))
+(require 'rspec-mode)
+(unless (package-installed-p 'rspec-mode)
+  (package-install 'rspec-mode))
+
+(eval-after-load 'rspec-mode
+  '(rspec-install-snippets))
 
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
@@ -138,15 +152,29 @@
  '(display-line-numbers-width 2)
  '(global-display-line-numbers-mode t)
  '(package-selected-packages
-   '(git-auto-commit-mode git-commit git-modes dracula-theme company flycheck lsp-mode rainbow-delimiters markdown-mode cider clojure-mode counsel projectile)))
+   '(rspec-mode
+     yasnippet
+     git-auto-commit-mode
+     git-commit
+     git-modes
+     dracula-theme
+     company
+     flycheck
+     lsp-mode
+     rainbow-delimiters
+     markdown-mode
+     cider
+     clojure-mode
+     counsel
+     projectile)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(line-number ((t (:background "undefined" :foreground "#44475a"))))
  '(inf-ruby-result-overlay-face ((t (:background "#404a53" :box (:line-width -1 :color "black")))))
+ '(line-number ((t (:foreground "#44475a"))))
  '(line-number-current-line ((t (:background "#474246" :weight ultra-bold))))
  '(mode-line ((t (:background "#44475a")))))
 
