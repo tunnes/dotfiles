@@ -1,11 +1,10 @@
 ;;; package --- Summary
-
 ;;; Commentary:
 (global-set-key (kbd "s-<right>") 'move-end-of-line)
 (require 'package)
-
 ;;; Code:
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (package-initialize)
 
 ;; Projectile ---------------------------------------------------------------------------------------------
@@ -69,9 +68,6 @@
 
 (add-hook 'ruby-mode-hook #'lsp)
 
-;; Hides the breadcrumb on the top of emacs
-(setq lsp-headerline-breadcrumb-enable nil)
-
 ;; Changing prefix for lsp-mode keybindings.
 (setq lsp-keymap-prefix "C-c")
 
@@ -98,25 +94,11 @@
 (unless (package-installed-p 'inf-ruby)
   (package-install 'inf-ruby))
 
-;; Yasnippet ------------------------------------------------------------------------------------------
-;; YASnippet is a template system for Emacs. It allows you to type an abbreviation and automatically
-;; expand it into function templates.
-;; https://github.com/joaotavora/yasnippet
-(unless (package-installed-p 'yasnippet)
-  (package-install 'yasnippet))
-
-(yas-reload-all)
-(add-hook 'prog-mode-hook #'yas-minor-mode)
-
 ;; RSpec Mode -------------------------------------------------------------------------------------------
 ;; RSpec mode provides some convenience functions for dealing with RSpec.
 ;; https://github.com/pezra/rspec-mode
-(require 'rspec-mode)
-(unless (package-installed-p 'rspec-mode)
-  (package-install 'rspec-mode))
-
-(eval-after-load 'rspec-mode
-  '(rspec-install-snippets))
+(unless (package-installed-p 'inf-ruby)
+  (package-install 'inf-ruby))
 
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
@@ -152,43 +134,25 @@
  '(display-line-numbers-width 2)
  '(global-display-line-numbers-mode t)
  '(package-selected-packages
-   '(rspec-mode
-     yasnippet
-     git-auto-commit-mode
-     git-commit
-     git-modes
-     dracula-theme
-     company
-     flycheck
-     lsp-mode
-     rainbow-delimiters
-     markdown-mode
-     cider
-     clojure-mode
-     counsel
-     projectile)))
+   '(ag inf-ruby company flycheck lsp-mode rainbow-delimiters projectile markdown-mode dracula-theme counsel cider)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(inf-ruby-result-overlay-face ((t (:background "#404a53" :box (:line-width -1 :color "black")))))
- '(line-number ((t (:foreground "#44475a"))))
- '(line-number-current-line ((t (:background "#474246" :weight ultra-bold))))
- '(mode-line ((t (:background "#44475a")))))
+ '(line-number ((t (:background "#262626" :foreground "white"))))
+ '(line-number-current-line ((t (:background "color-234" :weight ultra-bold))))
+ '(mode-line ((t (:background "#767676")))))
+
+;;(add-to-list 'default-frame-alist '(foreground-color . "#22242e"))
+;;(add-to-list 'default-frame-alist '(background-color . "#22242E"))
 
 ;; Enables the line number:
 (global-display-line-numbers-mode)
-
-;; Defines to emacs use the current terminal background color.
-(set-face-background 'default "undefined")
-
-;; It sets the comment color.
-(set-face-foreground 'font-lock-comment-face "#404a53")
-(set-face-foreground 'font-lock-comment-delimiter-face "#404a53")
 
 (setq backup-directory-alist `(("." . "~/.saves")))
 
 (provide 'init)
 ;;; init.el ends here
+
